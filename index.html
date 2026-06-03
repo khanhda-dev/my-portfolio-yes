@@ -372,6 +372,29 @@
     color: var(--text2);
   }
 
+  /* ─── PHOTO GALLERY ─── */
+  .photo-strip {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .photo-frame {
+    flex: 1;
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border2);
+  }
+
+  .photo-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+
+  .photo-frame:hover img { transform: scale(1.05); }
+
   /* ─── PROJECTS ─── */
   .projects-header {
     display: flex;
@@ -569,6 +592,26 @@
     font-size: 0.75rem;
     width: 35px;
     text-align: right;
+  }
+
+  /* ─── VIDEO CONTAINER ─── */
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    margin-top: 2rem;
+    background: var(--bg2);
+  }
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   /* ─── SKILLS ─── */
@@ -783,7 +826,7 @@
   }
 
   .contact-title {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Syne', sans-serif;
     font-size: clamp(2rem, 4vw, 3.5rem);
     font-weight: 800;
     letter-spacing: -0.03em;
@@ -900,6 +943,7 @@
     .skills-grid { grid-template-columns: repeat(2, 1fr); }
     .principles-grid { grid-template-columns: repeat(2, 1fr); }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .photo-strip { flex-direction: column; }
   }
 
   @media (max-width: 600px) {
@@ -911,6 +955,7 @@
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="nav-logo">MĐK</div>
   <ul class="nav-links">
@@ -922,6 +967,7 @@
   </ul>
 </nav>
 
+<!-- HERO -->
 <section class="hero" id="home" style="max-width:100%; padding-left: 3rem; padding-right: 3rem;">
   <div class="hero-grid-bg"></div>
   <div class="orb1 hero-orb"></div>
@@ -955,6 +1001,7 @@
 
 <div class="divider"></div>
 
+<!-- ABOUT -->
 <section id="about">
   <div class="section-label">
     <span class="section-num">01 / Giới thiệu</span>
@@ -1001,10 +1048,23 @@
       </div>
     </div>
   </div>
+
+  <div class="photo-strip fade-in">
+    <div class="photo-frame">
+      <img src="z7897778440118_9ab168ed01e56138b6fe09dc62b47fa1.jpg" alt="Khánh tại sự kiện" onerror="this.style.background='#1c1c28';">
+    </div>
+    <div class="photo-frame">
+      <img src="z7897778428985_e7d789d5b64c4dc2c21723bd7afb8b3c.jpg" alt="Khánh chơi guitar" onerror="this.style.background='#1c1c28';">
+    </div>
+    <div class="photo-frame">
+      <img src="z7897778436435_44541e47c35e15b7183fb89cd001d4d8.jpg" alt="Khánh biểu diễn" onerror="this.style.background='#1c1c28';">
+    </div>
+  </div>
 </section>
 
 <div class="divider"></div>
 
+<!-- PROJECTS / BÀI TẬP -->
 <section id="projects">
   <div class="section-label">
     <span class="section-num">02 / Bài tập</span>
@@ -1015,6 +1075,7 @@
 
   <div class="projects-grid" style="margin-top: 2.5rem;">
 
+    <!-- BÀI 1 -->
     <a href="cns1.pdf" target="_blank" class="project-card fade-in">
       <div class="project-num">Bài tập 1 của mục 1.4</div>
       <h3 class="project-title">Thao tác cơ bản với tệp tin và thư mục</h3>
@@ -1029,6 +1090,7 @@
       </div>
     </a>
 
+    <!-- BÀI 2 -->
     <a href="cns2.pdf" target="_blank" class="project-card fade-in">
       <div class="project-num">Bài tập 2 của mục 2.4</div>
       <h3 class="project-title">Tìm kiếm và đánh giá thông tin học thuật</h3>
@@ -1044,6 +1106,7 @@
       </div>
     </a>
 
+    <!-- BÀI 3 (FEATURED) -->
     <a href="cns3.pdf" target="_blank" class="project-card featured fade-in">
       <div>
         <div class="project-num">Bài tập 2 của mục 3.4</div>
@@ -1086,6 +1149,7 @@
       </div>
     </a>
 
+    <!-- BÀI 4 -->
     <a href="cns4.pdf" target="_blank" class="project-card fade-in">
       <div class="project-num">Bài tập 3 của mục 4.4</div>
       <h3 class="project-title">Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm</h3>
@@ -1101,6 +1165,7 @@
       </div>
     </a>
 
+    <!-- BÀI 5 -->
     <a href="cns5.pdf" target="_blank" class="project-card fade-in">
       <div class="project-num">Bài tập 2 của mục 5.4</div>
       <h3 class="project-title">Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung</h3>
@@ -1116,6 +1181,7 @@
       </div>
     </a>
 
+    <!-- BÀI 6 -->
     <a href="cns6.pdf" target="_blank" class="project-card fade-in">
       <div class="project-num">Bài tập 4 của mục 6.4</div>
       <h3 class="project-title">Sử dụng AI có trách nhiệm trong học tập và nghiên cứu</h3>
@@ -1132,10 +1198,17 @@
     </a>
 
   </div>
+
+  <h3 style="margin-top: 4rem; font-family: 'Syne', sans-serif; font-size: 1.5rem; color: var(--text); margin-bottom: 1rem;" class="fade-in">Video Thuyết trình Giữa kỳ</h3>
+  <div class="video-container fade-in">
+    <iframe src="https://www.youtube.com/embed/-jbt3sxa6Ho" title="Dự án nhóm: Edge AI & IoT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+
 </section>
 
 <div class="divider"></div>
 
+<!-- SKILLS -->
 <section id="skills">
   <div class="section-label">
     <span class="section-num">03 / Kỹ năng</span>
@@ -1233,6 +1306,7 @@
 
 <div class="divider"></div>
 
+<!-- TIMELINE / LEARNING JOURNEY -->
 <section id="timeline" style="max-width: 700px; margin: 0 auto; padding: 6rem 3rem;">
   <div class="section-label">
     <span class="section-num">04 / Hành trình</span>
@@ -1271,6 +1345,7 @@
 
 <div class="divider"></div>
 
+<!-- PRINCIPLES -->
 <section id="principles">
   <div class="section-label">
     <span class="section-num">05 / Nguyên tắc</span>
@@ -1315,6 +1390,7 @@
 
 <div class="divider"></div>
 
+<!-- CONTACT -->
 <div class="contact-section" id="contact">
   <div class="contact-label">Liên hệ</div>
   <h2 class="contact-title">Kết nối với tôi</h2>
@@ -1366,11 +1442,13 @@
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.project-card, .skill-card, .principle-card, .about-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(24px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(el);
+  document.querySelectorAll('.project-card, .skill-card, .principle-card, .about-card, .photo-strip, .video-container, h3').forEach(el => {
+    if(el.classList.contains('fade-in')) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    }
   });
 </script>
 
