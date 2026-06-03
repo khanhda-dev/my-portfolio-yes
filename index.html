@@ -590,15 +590,16 @@
     height: 100%;
   }
 
-  /* ─── INFOGRAPHICS GALLERY ─── */
+  /* ─── INFOGRAPHICS GALLERY (MASONRY) ─── */
   .info-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    column-count: 2;
+    column-gap: 1.5rem;
     margin-top: 2rem;
   }
 
   .info-card {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid var(--border);
@@ -943,7 +944,7 @@
     .about-grid { grid-template-columns: 1fr; }
     .projects-grid { grid-template-columns: 1fr; }
     .project-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
-    .info-gallery { grid-template-columns: 1fr; }
+    .info-gallery { column-count: 1; }
     .skills-grid { grid-template-columns: repeat(2, 1fr); }
     .principles-grid { grid-template-columns: repeat(2, 1fr); }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
@@ -959,7 +960,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">MĐK</div>
   <ul class="nav-links">
@@ -971,7 +971,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home" style="max-width:100%; padding-left: 3rem; padding-right: 3rem;">
   <div class="hero-grid-bg"></div>
   <div class="orb1 hero-orb"></div>
@@ -1005,7 +1004,6 @@
 
 <div class="divider"></div>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="section-label">
     <span class="section-num">01 / Giới thiệu</span>
@@ -1068,7 +1066,6 @@
 
 <div class="divider"></div>
 
-<!-- PROJECTS / BÀI TẬP -->
 <section id="projects">
   <div class="section-label">
     <span class="section-num">02 / Bài tập</span>
@@ -1079,7 +1076,6 @@
 
   <div class="projects-grid" style="margin-top: 2.5rem;">
 
-    <!-- BÀI 1 -->
     <a href="cns1.pdf" target="_blank" class="project-card fade-in">
       <div class="project-num">Bài tập 1 của mục 1.4</div>
       <h3 class="project-title">Thao tác cơ bản với tệp tin và thư mục</h3>
@@ -1094,7 +1090,6 @@
       </div>
     </a>
 
-    <!-- BÀI 2 -->
     <a href="cns2.pdf" target="_blank" class="project-card fade-in">
       <div class="project-num">Bài tập 2 của mục 2.4</div>
       <h3 class="project-title">Tìm kiếm và đánh giá thông tin học thuật</h3>
@@ -1110,7 +1105,6 @@
       </div>
     </a>
 
-    <!-- BÀI 3 (FEATURED) -->
     <a href="cns3.pdf" target="_blank" class="project-card featured fade-in">
       <div>
         <div class="project-num">Bài tập 2 của mục 3.4</div>
@@ -1153,7 +1147,6 @@
       </div>
     </a>
 
-    <!-- BÀI 4 -->
     <a href="cns4.pdf" target="_blank" class="project-card fade-in">
       <div class="project-num">Bài tập 3 của mục 4.4</div>
       <h3 class="project-title">Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm</h3>
@@ -1169,7 +1162,6 @@
       </div>
     </a>
 
-    <!-- BÀI 5 -->
     <a href="cns5.pdf" target="_blank" class="project-card fade-in">
       <div class="project-num">Bài tập 2 của mục 5.4</div>
       <h3 class="project-title">Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung</h3>
@@ -1185,7 +1177,6 @@
       </div>
     </a>
 
-    <!-- BÀI 6 -->
     <a href="cns6.pdf" target="_blank" class="project-card fade-in">
       <div class="project-num">Bài tập 4 của mục 6.4</div>
       <h3 class="project-title">Sử dụng AI có trách nhiệm trong học tập và nghiên cứu</h3>
@@ -1203,28 +1194,26 @@
 
   </div>
 
-  <!-- VIDEO THUYẾT TRÌNH -->
   <h3 style="margin-top: 4rem; font-family: 'Syne', sans-serif; font-size: 1.5rem; color: var(--text); margin-bottom: 0.5rem;" class="fade-in">Dự án Nhóm: Video Thuyết trình Giữa kỳ</h3>
   <p class="section-sub fade-in" style="margin-bottom: 1.5rem;">Dự án nghiên cứu ứng dụng Edge AI và IoT trong phát triển đô thị thông minh tại Việt Nam.</p>
   <div class="video-container fade-in">
     <iframe src="https://www.youtube.com/embed/-jbt3sxa6Ho" title="Dự án nhóm: Edge AI & IoT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
 
-  <!-- INFOGRAPHICS GALLERY -->
   <h3 style="margin-top: 4rem; font-family: 'Syne', sans-serif; font-size: 1.5rem; color: var(--text); margin-bottom: 0.5rem;" class="fade-in">Sản phẩm Đồ họa & Infographic</h3>
   <p class="section-sub fade-in" style="margin-bottom: 1.5rem;">Các thiết kế infographic được thực hiện trong quá trình học tập môn Nhập môn Công nghệ số.</p>
   <div class="info-gallery fade-in">
     <div class="info-card">
-      <img src="info4.png" alt="Sử dụng AI trong học thuật" onerror="this.style.background='#1c1c28';">
-    </div>
-    <div class="info-card">
-      <img src="info3.png" alt="Dự báo chất lượng không khí bằng AI" onerror="this.style.background='#1c1c28';">
+      <img src="info1.png" alt="Ứng dụng AI trong lập trình và kỹ thuật" onerror="this.style.background='#1c1c28';">
     </div>
     <div class="info-card">
       <img src="info2.png" alt="Thoát bẫy click - Tránh lừa đảo 4.0" onerror="this.style.background='#1c1c28';">
     </div>
     <div class="info-card">
-      <img src="info1.png" alt="Ứng dụng AI trong lập trình và kỹ thuật" onerror="this.style.background='#1c1c28';">
+      <img src="info3.png" alt="Dự báo chất lượng không khí bằng AI" onerror="this.style.background='#1c1c28';">
+    </div>
+    <div class="info-card">
+      <img src="info4.png" alt="Sử dụng AI trong học thuật" onerror="this.style.background='#1c1c28';">
     </div>
   </div>
 
@@ -1232,7 +1221,6 @@
 
 <div class="divider"></div>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="section-label">
     <span class="section-num">03 / Kỹ năng</span>
@@ -1330,7 +1318,6 @@
 
 <div class="divider"></div>
 
-<!-- TIMELINE / LEARNING JOURNEY -->
 <section id="timeline" style="max-width: 700px; margin: 0 auto; padding: 6rem 3rem;">
   <div class="section-label">
     <span class="section-num">04 / Hành trình</span>
@@ -1369,7 +1356,6 @@
 
 <div class="divider"></div>
 
-<!-- PRINCIPLES -->
 <section id="principles">
   <div class="section-label">
     <span class="section-num">05 / Nguyên tắc</span>
@@ -1414,7 +1400,6 @@
 
 <div class="divider"></div>
 
-<!-- CONTACT -->
 <div class="contact-section" id="contact">
   <div class="contact-label">Liên hệ</div>
   <h2 class="contact-title">Kết nối với tôi</h2>
