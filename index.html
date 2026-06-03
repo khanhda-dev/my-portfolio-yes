@@ -381,7 +381,7 @@
 
   .photo-frame {
     flex: 1;
-    height: 200px;
+    height: 250px;
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid var(--border2);
@@ -524,30 +524,6 @@
 
   .project-link:hover svg { transform: translate(2px, -2px); }
 
-  .project-visual {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .project-visual .vis-icon {
-    font-size: 3rem;
-    opacity: 0.15;
-  }
-
-  .project-visual::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(79,255,206,0.05) 0%, transparent 70%);
-  }
-
   .progress-bar-wrap {
     margin-top: 1rem;
   }
@@ -612,6 +588,33 @@
     left: 0;
     width: 100%;
     height: 100%;
+  }
+
+  /* ─── INFOGRAPHICS GALLERY ─── */
+  .info-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .info-card {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.3s, border-color 0.3s;
+    background: var(--surface);
+  }
+
+  .info-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--cyan);
+  }
+
+  .info-card img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   /* ─── SKILLS ─── */
@@ -940,6 +943,7 @@
     .about-grid { grid-template-columns: 1fr; }
     .projects-grid { grid-template-columns: 1fr; }
     .project-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+    .info-gallery { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: repeat(2, 1fr); }
     .principles-grid { grid-template-columns: repeat(2, 1fr); }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
@@ -1199,9 +1203,29 @@
 
   </div>
 
-  <h3 style="margin-top: 4rem; font-family: 'Syne', sans-serif; font-size: 1.5rem; color: var(--text); margin-bottom: 1rem;" class="fade-in">Video Thuyết trình Giữa kỳ</h3>
+  <!-- VIDEO THUYẾT TRÌNH -->
+  <h3 style="margin-top: 4rem; font-family: 'Syne', sans-serif; font-size: 1.5rem; color: var(--text); margin-bottom: 0.5rem;" class="fade-in">Dự án Nhóm: Video Thuyết trình Giữa kỳ</h3>
+  <p class="section-sub fade-in" style="margin-bottom: 1.5rem;">Dự án nghiên cứu ứng dụng Edge AI và IoT trong phát triển đô thị thông minh tại Việt Nam.</p>
   <div class="video-container fade-in">
     <iframe src="https://www.youtube.com/embed/-jbt3sxa6Ho" title="Dự án nhóm: Edge AI & IoT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+
+  <!-- INFOGRAPHICS GALLERY -->
+  <h3 style="margin-top: 4rem; font-family: 'Syne', sans-serif; font-size: 1.5rem; color: var(--text); margin-bottom: 0.5rem;" class="fade-in">Sản phẩm Đồ họa & Infographic</h3>
+  <p class="section-sub fade-in" style="margin-bottom: 1.5rem;">Các thiết kế infographic được thực hiện trong quá trình học tập môn Nhập môn Công nghệ số.</p>
+  <div class="info-gallery fade-in">
+    <div class="info-card">
+      <img src="SỬ DỤNG AI TRONG HỌC THUẬT.jpg" alt="Sử dụng AI trong học thuật" onerror="this.style.background='#1c1c28';">
+    </div>
+    <div class="info-card">
+      <img src="DỰ BÁO CHẤT LƯỢNG KHÔNG KHÍ BẰNG AI (1).jpg" alt="Dự báo chất lượng không khí bằng AI" onerror="this.style.background='#1c1c28';">
+    </div>
+    <div class="info-card">
+      <img src="THOÁT BẪY CLICK - TRÁNH LỪA ĐẢO 4.0.jpg" alt="Thoát bẫy click - Tránh lừa đảo 4.0" onerror="this.style.background='#1c1c28';">
+    </div>
+    <div class="info-card">
+      <img src="ỨNG DỤNG AI TRONG LẬP TRÌNH & KỸ THUẬT.jpg" alt="Ứng dụng AI trong lập trình và kỹ thuật" onerror="this.style.background='#1c1c28';">
+    </div>
   </div>
 
 </section>
@@ -1442,7 +1466,7 @@
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.project-card, .skill-card, .principle-card, .about-card, .photo-strip, .video-container, h3').forEach(el => {
+  document.querySelectorAll('.project-card, .skill-card, .principle-card, .about-card, .photo-strip, .video-container, .info-gallery, h3').forEach(el => {
     if(el.classList.contains('fade-in')) {
       el.style.opacity = '0';
       el.style.transform = 'translateY(24px)';
